@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tianrui.viewgroup.view.ZOrderLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <tianrui.viewgroup.view.MyTextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@android:color/holo_red_light"
+        android:elevation="4dp"
+        android:text="0"
+        app:layout_zorder="1"/>
+
+
+    <tianrui.viewgroup.view.MyTextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:background="@android:color/holo_blue_light"
+        android:elevation="4dp"
+        android:text="1"
+        app:layout_zorder="2"/>
+
+
+    <tianrui.viewgroup.view.MyTextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:background="@android:color/holo_orange_light"
+        android:elevation="4dp"
+        android:text="2"
+        app:layout_zorder="3"/>
+
+
+    <tianrui.viewgroup.view.MyTextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="60dp"
+        android:background="@android:color/holo_green_light"
+        android:elevation="4dp"
+        android:text="3"
+        app:layout_zorder="2"/>
+
+
+    <tianrui.viewgroup.view.MyTextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="80dp"
+        android:background="@android:color/holo_purple"
+        android:elevation="4dp"
+        android:text="4"
+        app:layout_zorder="1"/>
+
+</tianrui.viewgroup.view.ZOrderLayout>
