@@ -2,7 +2,10 @@
 
 ## Android Z轴布局
 > 如果需要在布局中创造一个层叠的概念,那么使用Android系统中的ViewGroup是不够的,但是可以通过改变ViewGroup的绘制顺序实现
-> API21以后有`android:elevation`属性,可以在代码中直接设置, 但是兼容低版本的话就需要自定义ViewGroup了
+
+API21以后有`android:elevation`属性,可以在代码中直接设置, 但是兼容低版本的话就需要自定义ViewGroup了
+![这里写图片描述](http://img.blog.csdn.net/20170910220242375?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveTg3NDk2MTUyNA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
 ### 继承自FrameLayout
 FrameLayout已经帮我们实现了子View的measure和layout过程,我们只需在它的基础上改变绘制顺序即可
 
@@ -158,5 +161,5 @@ protected int getChildDrawingOrder(int childCount, int i) {
 ```
 
 可以看出这个布局是中间的zorder最高,表示中间的会压在两边的上边,而最左(右)的绘制层级(zorder)为1, 表示会绘制在最下面
-![](https://leanote.com/api/file/getImage?fileId=59b3ebd1ab64414624002135)
+![](http://img.blog.csdn.net/20170910220242375?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveTg3NDk2MTUyNA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
