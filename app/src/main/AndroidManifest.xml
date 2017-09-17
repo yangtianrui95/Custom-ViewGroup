@@ -18,6 +18,10 @@
         </activity>
         <activity android:name=".ZOrderActivity">
         </activity>
+        <activity android:name=".CircleLayoutActivity">
+        </activity>
+        <activity android:name=".TestActivity">
+        </activity>
     </application>
 
 </manifest>

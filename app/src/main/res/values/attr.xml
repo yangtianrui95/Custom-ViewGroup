@@ -4,4 +4,9 @@
     <declare-styleable name="ZOrderLayout">
         <attr name="layout_zorder" format="integer"/>
     </declare-styleable>
+
+    <declare-styleable name="CircleLayout">
+        <attr name="radius_factor" format="float"/>
+        <attr name="layout_radius" format="float"/>
+    </declare-styleable>
 </resources>

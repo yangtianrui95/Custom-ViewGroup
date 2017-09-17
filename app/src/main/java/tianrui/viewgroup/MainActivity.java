@@ -16,4 +16,8 @@ public class MainActivity extends AppCompatActivity {
     public void onClickZorderLayout(View view) {
         startActivity(new Intent(this, ZOrderActivity.class));
     }
+
+    public void onClickFrameLayout(View view) {
+        startActivity(new Intent(this, CircleLayoutActivity.class));
+    }
 }

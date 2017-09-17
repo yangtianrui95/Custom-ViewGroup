@@ -4,15 +4,23 @@
     android:layout_height="match_parent">
 
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <Button
-            android:onClick="onClickZorderLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onClickZorderLayout"
             android:text="ZorderLayout"/>
 
-    </RelativeLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickFrameLayout"
+            android:text="CircleLayout"/>
+
+    </LinearLayout>
 </ScrollView>
