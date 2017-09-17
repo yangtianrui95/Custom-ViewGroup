@@ -41,7 +41,7 @@
     <Button
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@android:color/holo_green_light"
+        android:background="@android:color/holo_green_dark"
         android:text="5"/>
 
 
@@ -49,8 +49,22 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
-        android:background="@android:color/holo_blue_bright"
+        android:background="@android:color/holo_blue_dark"
         android:text="6"/>
 
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@android:color/holo_orange_light"
+        android:text="7"/>
+
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/holo_orange_dark"
+        android:text="8"/>
 
 </tianrui.viewgroup.view.CircleLayout>

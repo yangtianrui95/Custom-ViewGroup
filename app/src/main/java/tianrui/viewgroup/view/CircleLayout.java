@@ -22,6 +22,8 @@ public class CircleLayout extends ViewGroup {
     private float radius;
     private float radiusFactor;
 
+    private int childMaxWidth;
+    private int childMaxHeight;
 
     public CircleLayout(Context context) {
         this(context, null);
@@ -64,10 +66,11 @@ public class CircleLayout extends ViewGroup {
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        radius = getMeasuredWidth() / 2;
-        Log.d(TAG, "onLayout: radiusFactor " + radiusFactor);
+        radius = (r - l) / 2 * radiusFactor * getScaleFactor();
         final int count = getChildCount();
         final double angleOffset = CIRCLE_RADIUS / count;
+        final int centerX = (r - l) / 2;
+        final int centerY = (b - t) / 2;
         double angle;
         View child;
         int left, top, right, bottom;
@@ -77,46 +80,39 @@ public class CircleLayout extends ViewGroup {
             child = getChildAt(i);
             width = child.getMeasuredWidth();
             height = child.getMeasuredHeight();
-            left = clamp(0, (int) (radius * 2), (int) (radius - radius * Math.sin(angle) - width / 2), width);
-            top = clamp(0, (int) (radius * 2), (int) (radius - radius * Math.cos(angle) - height / 2), height);
-            right = left + width;
-            bottom = top + height;
+
+            right = (int) (centerX + (radius * Math.sin(angle)) + (width / 2));
+            left = right - width;
+            bottom = (int) (centerY + (radius * Math.cos(angle)) + (height / 2));
+            top = bottom - height;
             Log.d(TAG, "onLayout: " + String.format("left: %d, top: %d, right: %d, bottom: %d"
                     , left, top, right, bottom));
             child.layout(left, top, right, bottom);
         }
     }
 
+
     @Override
-    public LayoutParams generateLayoutParams(AttributeSet attrs) {
-        return new LayoutParams(getContext(), attrs);
+    protected void measureChild(View child, int parentWidthMeasureSpec, int parentHeightMeasureSpec) {
+        super.measureChild(child, parentWidthMeasureSpec, parentHeightMeasureSpec);
+        childMaxWidth = Math.max(childMaxWidth, child.getMeasuredWidth());
+        childMaxHeight = Math.max(childMaxHeight, child.getMeasuredHeight());
     }
+
+    private float getScaleFactor() {
+        final int size = Math.max(childMaxWidth, childMaxHeight);
+        return 1 - (float) size / getMeasuredWidth();
+    }
+
 
     private static int clampBound(int width, int height) {
         return width > height ? height : width;
     }
 
-
-    // 固定left和top的值
-    private static int clamp(int min, int max, int position, int size) {
-        if (position - size < min) {
-            return min;
-        } else if (position + size > max) {
-            return max - size;
-        }
-        return position;
+    @Override
+    public LayoutParams generateLayoutParams(AttributeSet attrs) {
+        return new MarginLayoutParams(getContext(), attrs);
     }
 
 
-    public static class LayoutParams extends ViewGroup.LayoutParams {
-
-        public float radius;
-
-        public LayoutParams(Context c, AttributeSet attrs) {
-            super(c, attrs);
-            TypedArray arr = c.obtainStyledAttributes(attrs, R.styleable.CircleLayout);
-            radius = arr.getFloat(R.styleable.CircleLayout_layout_radius, 0f);
-            arr.recycle();
-        }
-    }
 }
